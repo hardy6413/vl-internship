@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.virtuslab.internship.discount.ManyDiscountsAtTheSameTimeTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-25T18:42:37" hostname="LAPTOP-TVV3KJH9" time="0.04">
+  <properties/>
+  <testcase name="shouldOnlyApply15PercentDiscountWhenCartHasAtLeast3GrainProductsButPriceIsUnder50()" classname="com.virtuslab.internship.discount.ManyDiscountsAtTheSameTimeTest" time="0.04"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
