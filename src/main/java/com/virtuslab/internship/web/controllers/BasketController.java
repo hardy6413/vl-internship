@@ -23,7 +23,7 @@ public class BasketController {
         return new ResponseEntity<>(basket, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/{id}")
+    @PostMapping(value = "/{id}/add")
     public ResponseEntity<Basket> addProductToBasket(@PathVariable Long id, @RequestBody Product product){
         Basket basket = basketService.addItemToBasket(id, product);
 
