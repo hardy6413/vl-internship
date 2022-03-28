@@ -4,15 +4,14 @@ import com.virtuslab.internship.basket.Basket;
 import com.virtuslab.internship.basket.BasketDb;
 import com.virtuslab.internship.product.Product;
 import com.virtuslab.internship.web.exceptions.NotFoundException;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Slf4j
+
 @Service
 public class BasketService {
 
-    BasketDb basketRepository;
+    private final BasketDb basketRepository;
 
     @Autowired
     public BasketService(BasketDb basketRepository) {
@@ -52,8 +51,6 @@ public class BasketService {
     }
 
     public void removeBasket(Long id) {
-        var basket = this.findById(id);
-
         basketRepository.removeById(id);
     }
 }

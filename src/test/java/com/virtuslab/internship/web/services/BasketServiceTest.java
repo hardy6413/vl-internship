@@ -104,17 +104,11 @@ class BasketServiceTest {
     @Test
     void testRemoveBasket() {
         //given
-        var basket = new Basket();
-        basket.setId(1L);
-        var basketOptional = Optional.of(basket);
-
-        when(basketRepository.findById(anyLong())).thenReturn(basketOptional);
 
         //when
-        basketService.removeBasket(basket.getId());
+        basketService.removeBasket(1L);
 
         //then
-        verify(basketRepository, times(1)).findById(anyLong());
         verify(basketRepository, times(1)).removeById(anyLong());
     }
 

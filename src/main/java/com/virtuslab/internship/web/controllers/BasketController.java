@@ -4,20 +4,25 @@ import com.virtuslab.internship.basket.Basket;
 import com.virtuslab.internship.product.Product;
 import com.virtuslab.internship.web.services.BasketService;
 import com.virtuslab.internship.web.services.ProductService;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
-@AllArgsConstructor
 @RestController
 @RequestMapping("/basket")
 public class BasketController {
 
     private final BasketService basketService;
     private final ProductService productService;
+
+    @Autowired
+    public BasketController(BasketService basketService, ProductService productService) {
+        this.basketService = basketService;
+        this.productService = productService;
+    }
 
     @GetMapping("/{id}")
     @ResponseBody
