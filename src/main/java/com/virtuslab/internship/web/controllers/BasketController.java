@@ -48,13 +48,13 @@ public class BasketController {
         var productToBeDeleted = productService.findByName(productName);
         var basket = basketService.removeItemFromBasket(id,productToBeDeleted);
 
-        return new ResponseEntity<>(basket,HttpStatus.OK);
+        return new ResponseEntity<>(basket, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteBasket(@PathVariable Long id){
         basketService.removeBasket(id);
 
-        return new ResponseEntity<>("Deleted basket ID:"+id,HttpStatus.OK);
+        return new ResponseEntity<>("Deleted basket ID:"+id, HttpStatus.OK);
     }
 }

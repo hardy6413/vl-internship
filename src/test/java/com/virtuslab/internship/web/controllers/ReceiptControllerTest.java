@@ -3,8 +3,8 @@ package com.virtuslab.internship.web.controllers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.virtuslab.internship.basket.Basket;
 import com.virtuslab.internship.product.Product;
-import com.virtuslab.internship.receipt.Receipt;
 import com.virtuslab.internship.receipt.ReceiptGenerator;
+import com.virtuslab.internship.web.exceptions.NotFoundException;
 import com.virtuslab.internship.web.services.BasketService;
 import com.virtuslab.internship.web.services.ReceiptService;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,7 +19,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.math.BigDecimal;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
@@ -51,7 +51,7 @@ class ReceiptControllerTest {
     }
 
     @Test
-    void testCreateRecipe() throws Exception {
+    void testGetRecipe() throws Exception {
         //given
         var basket = new Basket();
         basket.setId(1L);
@@ -71,5 +71,13 @@ class ReceiptControllerTest {
         var receiptJson = result.getResponse().getContentAsString();
 
         assertEquals(receiptJson, mapper.writeValueAsString(receipt));
+    }
+
+    @Test
+    void testGetReceiptNotFoundException() throws Exception{
+        when(basketService.findById(anyLong())).thenThrow(NotFoundException.class);
+
+        mockMvc.perform(get("/receipt/1"))
+                .andExpect(status().isNotFound());
     }
 }

@@ -1,0 +1,181 @@
+]17:55:44.672 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+	c.v.i.w.c.BasketController:
+J	{DELETE [/basket/{id}/{productName}]}: deleteItemFromBasket(Long,String)
+'	{GET [/basket/{id}]}: getBasket(Long)
+-	{DELETE [/basket/{id}]}: deleteBasket(Long)
+=	{POST [/basket/{id}/add]}: addProductToBasket(Long,Product)
+*	{POST [/basket/create]}: createBasket()
+ÿ17:55:44.703 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 5 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+€17:55:44.814 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+æ17:55:44.861 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+Ä17:55:44.877 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+v17:55:44.877 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+É17:55:44.877 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+{17:55:44.877 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+π17:55:44.877 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@74fab04a
+∞17:55:44.877 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@3c83468e
+Í17:55:44.877 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+17:55:44.877 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+Å17:55:44.911 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - DELETE "/basket/1", parameters={}
+Œ17:55:44.911 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.virtuslab.internship.web.controllers.BasketController#deleteBasket(Long)
+⁄17:55:44.955 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+î17:55:44.955 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor - Writing ["Deleted basket ID:1"]
+p17:55:44.955 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK
+]17:55:44.971 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+	c.v.i.w.c.BasketController:
+J	{DELETE [/basket/{id}/{productName}]}: deleteItemFromBasket(Long,String)
+'	{GET [/basket/{id}]}: getBasket(Long)
+-	{DELETE [/basket/{id}]}: deleteBasket(Long)
+=	{POST [/basket/{id}/add]}: addProductToBasket(Long,Product)
+*	{POST [/basket/create]}: createBasket()
+ÿ17:55:44.971 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 5 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+€17:55:44.971 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+æ17:55:44.971 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+Ä17:55:44.987 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+v17:55:44.987 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+É17:55:44.987 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+{17:55:44.987 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+π17:55:44.987 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@11eed657
+∞17:55:44.987 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@708f018e
+Í17:55:44.987 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+17:55:44.987 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+É17:55:45.018 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - POST "/basket/1/add", parameters={}
+›17:55:45.018 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.virtuslab.internship.web.controllers.BasketController#addProductToBasket(Long, Product)
+¬17:55:45.050 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor - Read "application/json" to [Product[name=test, type=DAIRY, price=3]]
+œ17:55:45.065 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+Æ17:55:45.065 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor - Writing [com.virtuslab.internship.basket.Basket@60bb7995]
+p17:55:45.065 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK
+]17:55:45.081 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+	c.v.i.w.c.BasketController:
+J	{DELETE [/basket/{id}/{productName}]}: deleteItemFromBasket(Long,String)
+'	{GET [/basket/{id}]}: getBasket(Long)
+-	{DELETE [/basket/{id}]}: deleteBasket(Long)
+=	{POST [/basket/{id}/add]}: addProductToBasket(Long,Product)
+*	{POST [/basket/create]}: createBasket()
+ÿ17:55:45.081 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 5 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+€17:55:45.081 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+æ17:55:45.097 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+Ä17:55:45.097 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+v17:55:45.097 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+É17:55:45.097 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+{17:55:45.097 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+π17:55:45.097 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@37e69c43
+∞17:55:45.097 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@5c7dfc05
+Í17:55:45.097 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+17:55:45.097 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+~17:55:45.097 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/basket/1", parameters={}
+À17:55:45.097 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.virtuslab.internship.web.controllers.BasketController#getBasket(Long)
+œ17:55:45.097 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+Æ17:55:45.097 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor - Writing [com.virtuslab.internship.basket.Basket@3d0cac1f]
+p17:55:45.097 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK
+]17:55:45.113 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+	c.v.i.w.c.BasketController:
+J	{DELETE [/basket/{id}/{productName}]}: deleteItemFromBasket(Long,String)
+'	{GET [/basket/{id}]}: getBasket(Long)
+-	{DELETE [/basket/{id}]}: deleteBasket(Long)
+=	{POST [/basket/{id}/add]}: addProductToBasket(Long,Product)
+*	{POST [/basket/create]}: createBasket()
+ÿ17:55:45.113 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 5 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+€17:55:45.113 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+æ17:55:45.113 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+Ä17:55:45.113 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+v17:55:45.113 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+É17:55:45.113 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+{17:55:45.113 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+π17:55:45.113 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1e4c6583
+∞17:55:45.113 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@2ee48610
+Í17:55:45.113 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+17:55:45.113 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+~17:55:45.113 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/basket/1", parameters={}
+À17:55:45.113 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.virtuslab.internship.web.controllers.BasketController#getBasket(Long)
+Û17:55:45.128 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.virtuslab.internship.web.controllers.ControllersExceptionHandler#handleNotFound(Exception)
+⁄17:55:45.128 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+ê17:55:45.128 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor - Nothing to write: null body
+¡17:55:45.128 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.virtuslab.internship.web.exceptions.NotFoundException]
+w17:55:45.128 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 404 NOT_FOUND
+]17:55:45.128 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+	c.v.i.w.c.BasketController:
+J	{DELETE [/basket/{id}/{productName}]}: deleteItemFromBasket(Long,String)
+'	{GET [/basket/{id}]}: getBasket(Long)
+-	{DELETE [/basket/{id}]}: deleteBasket(Long)
+=	{POST [/basket/{id}/add]}: addProductToBasket(Long,Product)
+*	{POST [/basket/create]}: createBasket()
+ÿ17:55:45.128 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 5 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+€17:55:45.128 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+æ17:55:45.128 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+Ä17:55:45.128 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+v17:55:45.128 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+É17:55:45.128 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+{17:55:45.144 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+π17:55:45.144 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@56dd6efa
+∞17:55:45.144 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@4d634127
+Í17:55:45.144 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+Ä17:55:45.144 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 16 ms
+Ü17:55:45.144 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - DELETE "/basket/1/test", parameters={}
+ﬁ17:55:45.144 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.virtuslab.internship.web.controllers.BasketController#deleteItemFromBasket(Long, String)
+œ17:55:45.144 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+Æ17:55:45.144 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor - Writing [com.virtuslab.internship.basket.Basket@72b43104]
+p17:55:45.144 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK
+]17:55:45.144 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+	c.v.i.w.c.BasketController:
+J	{DELETE [/basket/{id}/{productName}]}: deleteItemFromBasket(Long,String)
+'	{GET [/basket/{id}]}: getBasket(Long)
+-	{DELETE [/basket/{id}]}: deleteBasket(Long)
+=	{POST [/basket/{id}/add]}: addProductToBasket(Long,Product)
+*	{POST [/basket/create]}: createBasket()
+ÿ17:55:45.144 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 5 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+€17:55:45.159 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+æ17:55:45.159 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+Ä17:55:45.159 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+v17:55:45.159 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+É17:55:45.159 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+{17:55:45.159 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+π17:55:45.159 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@3fd05b3e
+∞17:55:45.159 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@4eb9f2af
+Í17:55:45.159 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+17:55:45.159 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+Ñ17:55:45.159 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - POST "/basket/create", parameters={}
+ 17:55:45.159 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.virtuslab.internship.web.controllers.BasketController#createBasket()
+œ17:55:45.159 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+Æ17:55:45.159 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor - Writing [com.virtuslab.internship.basket.Basket@4ace284d]
+u17:55:45.159 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 201 CREATED
+]17:55:45.191 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+	c.v.i.w.c.ReceiptController:
+0	{GET [/receipt/{basketId}]}: getReceipt(Long)
+ÿ17:55:45.191 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 1 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+€17:55:45.191 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+æ17:55:45.206 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+Ä17:55:45.206 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+v17:55:45.206 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+É17:55:45.206 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+{17:55:45.206 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+π17:55:45.206 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@3bf54172
+∞17:55:45.206 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@2c9a6717
+Í17:55:45.206 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+17:55:45.206 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+17:55:45.212 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/receipt/1", parameters={}
+Õ17:55:45.212 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.virtuslab.internship.web.controllers.ReceiptController#getReceipt(Long)
+Û17:55:45.212 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.virtuslab.internship.web.controllers.ControllersExceptionHandler#handleNotFound(Exception)
+⁄17:55:45.212 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+ê17:55:45.212 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor - Nothing to write: null body
+¡17:55:45.212 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [com.virtuslab.internship.web.exceptions.NotFoundException]
+w17:55:45.212 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 404 NOT_FOUND
+]17:55:45.222 [Test worker] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings - 
+	c.v.i.w.c.ReceiptController:
+0	{GET [/receipt/{basketId}]}: getReceipt(Long)
+ÿ17:55:45.222 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - 1 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+€17:55:45.222 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+æ17:55:45.222 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+Ä17:55:45.222 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+v17:55:45.222 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+É17:55:45.222 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+{17:55:45.222 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected FixedThemeResolver
+π17:55:45.222 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@3127cb44
+Ø17:55:45.222 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@3234474
+Í17:55:45.222 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+17:55:45.222 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+17:55:45.222 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - GET "/receipt/1", parameters={}
+Õ17:55:45.222 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped to com.virtuslab.internship.web.controllers.ReceiptController#getReceipt(Long)
+œ17:55:45.238 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+Ú17:55:45.238 [Test worker] DEBUG org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor - Writing [Receipt[entries=[ReceiptEntry[product=Product[name=test, type=DAIRY, price=3], quantity=1, totalPric (truncated)...]
+p17:55:45.238 [Test worker] DEBUG org.springframework.test.web.servlet.TestDispatcherServlet - Completed 200 OK

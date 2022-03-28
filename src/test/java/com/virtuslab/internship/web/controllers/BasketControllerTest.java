@@ -130,8 +130,9 @@ class BasketControllerTest {
 
     @Test
     void testGetBasketNotFoundException() throws Exception{
-        mockMvc.perform(get("/1"))
+        when(basketService.findById(anyLong())).thenThrow(NotFoundException.class);
+
+        mockMvc.perform(get("/basket/1"))
                 .andExpect(status().isNotFound());
     }
-
 }

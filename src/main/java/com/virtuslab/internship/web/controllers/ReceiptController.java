@@ -18,7 +18,7 @@ public class ReceiptController {
 
     @GetMapping("/{basketId}")
     @ResponseBody
-    public ResponseEntity<Receipt> createRecipe(@PathVariable Long basketId) {
+    public ResponseEntity<Receipt> getReceipt(@PathVariable Long basketId) {
         basketService.findById(basketId);
         var receipt = receiptService.generateReceipt(basketService.findById(basketId));
 
