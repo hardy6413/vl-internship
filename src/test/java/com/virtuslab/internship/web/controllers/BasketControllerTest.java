@@ -34,11 +34,10 @@ class BasketControllerTest {
 
     MockMvc mockMvc;
 
-    ObjectMapper mapper;
+    ObjectMapper mapper = new ObjectMapper();
 
     @BeforeEach
     void setUp() {
-        mapper = new ObjectMapper();
         mockMvc = MockMvcBuilders
                 .standaloneSetup(basketController)
                 .setControllerAdvice(new ControllersExceptionHandler())
@@ -69,6 +68,7 @@ class BasketControllerTest {
         basket.getProducts().add(productToAdd);
 
         when(basketService.addItemToBasket(anyLong(),any(Product.class))).thenReturn(basket);
+
         MvcResult result = mockMvc.perform(post("/basket/1/add")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(mapper.writeValueAsString(productToAdd)))
