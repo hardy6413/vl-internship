@@ -3,6 +3,7 @@ package com.virtuslab.internship.web.services;
 import com.virtuslab.internship.basket.Basket;
 import com.virtuslab.internship.basket.BasketDb;
 import com.virtuslab.internship.product.Product;
+import com.virtuslab.internship.web.exceptions.NotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -10,6 +11,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.lang.reflect.Executable;
 import java.math.BigDecimal;
 import java.util.Optional;
 
@@ -115,5 +117,17 @@ class BasketServiceTest {
         //then
         verify(basketRepository, times(1)).findById(anyLong());
         verify(basketRepository, times(1)).removeById(anyLong());
+    }
+
+    @Test
+    void testFindByIdNotFoundException() throws Exception {
+        //given
+        when(basketRepository.findById(anyLong())).thenThrow(NotFoundException.class);
+
+        //when
+
+        //then
+        assertThrows(NotFoundException.class,
+                ()-> basketService.findById(1L));
     }
 }

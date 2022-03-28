@@ -37,13 +37,12 @@ public class BasketController {
     @ResponseBody
     public ResponseEntity<Basket> createBasket() {
         var basket = new Basket();
-
         var createdBasket = basketService.saveBasket(basket);
 
         return new ResponseEntity<>(createdBasket, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("{id}/{productName}")
+    @DeleteMapping("/{id}/{productName}")
     @ResponseBody
     public ResponseEntity<Basket> deleteItemFromBasket(@PathVariable Long id, @PathVariable String productName){
         var productToBeDeleted = productService.findByName(productName);
@@ -52,7 +51,7 @@ public class BasketController {
         return new ResponseEntity<>(basket,HttpStatus.OK);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteBasket(@PathVariable Long id){
         basketService.removeBasket(id);
 

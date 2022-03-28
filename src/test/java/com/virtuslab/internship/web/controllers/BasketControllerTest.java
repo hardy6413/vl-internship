@@ -3,6 +3,7 @@ package com.virtuslab.internship.web.controllers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.virtuslab.internship.basket.Basket;
 import com.virtuslab.internship.product.Product;
+import com.virtuslab.internship.web.exceptions.NotFoundException;
 import com.virtuslab.internship.web.services.BasketService;
 import com.virtuslab.internship.web.services.ProductService;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,7 +14,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.math.BigDecimal;
@@ -55,7 +55,7 @@ class BasketControllerTest {
 
         when(basketService.findById(anyLong())).thenReturn(basket);
 
-        MvcResult result = mockMvc.perform(get("/basket/1"))
+        var result = mockMvc.perform(get("/basket/1"))
                 .andExpect(status().isOk())
                 .andReturn();
 
@@ -74,7 +74,7 @@ class BasketControllerTest {
         when(basketService.addItemToBasket(anyLong(),any(Product.class))).thenReturn(basket);
         when(productService.findByName(anyString())).thenReturn(productToAdd);
 
-        MvcResult result = mockMvc.perform(post("/basket/1/add")
+        var result = mockMvc.perform(post("/basket/1/add")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(mapper.writeValueAsString(productToAdd)))
                 .andExpect(status().isOk())
@@ -94,7 +94,7 @@ class BasketControllerTest {
 
         when(basketService.saveBasket(any(Basket.class))).thenReturn(basket);
 
-        MvcResult result = mockMvc.perform(post("/basket/create"))
+        var result = mockMvc.perform(post("/basket/create"))
                 .andExpect(status().isCreated())
                 .andReturn();
 
@@ -104,7 +104,7 @@ class BasketControllerTest {
     }
 
     @Test
-    void deleteItemFromBasket() throws Exception {
+    void testDeleteItemFromBasket() throws Exception {
         var basket = new Basket();
         basket.setId(1L);
         var productToBeDeleted = new Product("test", Product.Type.DAIRY, BigDecimal.valueOf(3));
@@ -121,11 +121,17 @@ class BasketControllerTest {
     }
 
     @Test
-    void deleteBasket() throws Exception {
+    void testDeleteBasket() throws Exception {
         mockMvc.perform(delete("/basket/1"))
-                .andExpect(status().isOk())
-                .andReturn();
+                .andExpect(status().isOk());
 
         verify(basketService, times(1)).removeBasket(anyLong());
     }
+
+    @Test
+    void testGetBasketNotFoundException() throws Exception{
+        mockMvc.perform(get("/1"))
+                .andExpect(status().isNotFound());
+    }
+
 }

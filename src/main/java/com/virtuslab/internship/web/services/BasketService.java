@@ -31,6 +31,7 @@ public class BasketService {
         var basket = this.findById(basketId);
 
         basket.getProducts().add(product);
+        this.saveBasket(basket);
 
         return basket;
     }
@@ -43,8 +44,9 @@ public class BasketService {
         var basket = this.findById(id);
 
         basket.getProducts().remove(product);
+        this.saveBasket(basket);
 
-        return  basket;
+        return basket;
     }
 
     public void removeBasket(Long id) {
