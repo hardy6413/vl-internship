@@ -23,9 +23,6 @@ class BasketServiceTest {
     @Mock
     BasketDb basketRepository;
 
-    @Mock
-    ProductService productService;
-
     @InjectMocks
     BasketService basketService;
 
@@ -47,7 +44,7 @@ class BasketServiceTest {
 
         //then
         assertEquals(returnedBasket,basket);
-        verify(basketRepository,times(1)).findById(anyLong());
+        verify(basketRepository, times(1)).findById(anyLong());
     }
 
     @Test
@@ -59,15 +56,13 @@ class BasketServiceTest {
         var productToAdd = new Product("test", Product.Type.DAIRY, BigDecimal.valueOf(3));
 
         when(basketRepository.findById(anyLong())).thenReturn(basketOptional);
-        when(productService.findByName(anyString())).thenReturn(productToAdd);
 
         //when
         var returnedBasket = basketService.addItemToBasket(basket.getId(),productToAdd);
 
         //then
         assertTrue(returnedBasket.getProducts().contains(productToAdd));
-        verify(basketRepository,times(1)).findById(anyLong());
-        verify(productService,times(1)).findByName(anyString());
+        verify(basketRepository, times(1)).findById(anyLong());
     }
 
     @Test
@@ -82,8 +77,8 @@ class BasketServiceTest {
         var returnedBasket = basketService.saveBasket(basket);
 
         //then
-        assertEquals(returnedBasket,basket);
-        verify(basketRepository,times(1)).save(any(Basket.class));
+        assertEquals(returnedBasket, basket);
+        verify(basketRepository, times(1)).save(any(Basket.class));
     }
 
     @Test
@@ -96,15 +91,13 @@ class BasketServiceTest {
         basket.getProducts().add(productToBeRemoved);
 
         when(basketRepository.findById(anyLong())).thenReturn(basketOptional);
-        when(productService.findByName(anyString())).thenReturn(productToBeRemoved);
 
         //when
-        var returnedBasket = basketService.removeItemFromBasket(basket.getId(),productToBeRemoved.name());
+        var returnedBasket = basketService.removeItemFromBasket(basket.getId(),productToBeRemoved);
 
         //then
         assertFalse(returnedBasket.getProducts().contains(productToBeRemoved));
-        verify(basketRepository,times(1)).findById(anyLong());
-        verify(productService,times(1)).findByName(anyString());
+        verify(basketRepository, times(1)).findById(anyLong());
     }
 
     @Test
@@ -120,8 +113,7 @@ class BasketServiceTest {
         basketService.removeBasket(basket.getId());
 
         //then
-        verify(basketRepository,times(1)).findById(anyLong());
-        verify(basketRepository,times(1)).removeById(anyLong());
-        verify(productService,times(1)).findByName(anyString());
+        verify(basketRepository, times(1)).findById(anyLong());
+        verify(basketRepository, times(1)).removeById(anyLong());
     }
 }

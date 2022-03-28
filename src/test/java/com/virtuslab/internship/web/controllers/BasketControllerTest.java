@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.virtuslab.internship.basket.Basket;
 import com.virtuslab.internship.product.Product;
 import com.virtuslab.internship.web.services.BasketService;
+import com.virtuslab.internship.web.services.ProductService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,6 +29,9 @@ class BasketControllerTest {
 
     @Mock
     BasketService basketService;
+
+    @Mock
+    ProductService productService;
 
     @InjectMocks
     BasketController basketController;
@@ -57,7 +61,7 @@ class BasketControllerTest {
 
         var basketJson = result.getResponse().getContentAsString();
 
-        assertEquals(basketJson,mapper.writeValueAsString(basket));
+        assertEquals(basketJson, mapper.writeValueAsString(basket));
     }
 
     @Test
@@ -68,6 +72,7 @@ class BasketControllerTest {
         basket.getProducts().add(productToAdd);
 
         when(basketService.addItemToBasket(anyLong(),any(Product.class))).thenReturn(basket);
+        when(productService.findByName(anyString())).thenReturn(productToAdd);
 
         MvcResult result = mockMvc.perform(post("/basket/1/add")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -78,6 +83,8 @@ class BasketControllerTest {
         var basketJson = result.getResponse().getContentAsString();
 
         assertEquals(basketJson, mapper.writeValueAsString(basket));
+        verify(basketService, times(1)).addItemToBasket(anyLong(),any(Product.class));
+        verify(productService, times(1)).findByName(anyString());
     }
 
     @Test
@@ -93,7 +100,7 @@ class BasketControllerTest {
 
         var basketJson = result.getResponse().getContentAsString();
 
-        assertEquals(basketJson,mapper.writeValueAsString(basket));
+        assertEquals(basketJson, mapper.writeValueAsString(basket));
     }
 
     @Test
@@ -102,13 +109,15 @@ class BasketControllerTest {
         basket.setId(1L);
         var productToBeDeleted = new Product("test", Product.Type.DAIRY, BigDecimal.valueOf(3));
 
-        when(basketService.removeItemFromBasket(anyLong(),anyString())).thenReturn(basket);
+        when(basketService.removeItemFromBasket(anyLong(),any(Product.class))).thenReturn(basket);
+        when(productService.findByName(anyString())).thenReturn(productToBeDeleted);
 
         mockMvc.perform(delete("/basket/1/"+productToBeDeleted.name()))
                 .andExpect(status().isOk())
                 .andReturn();
 
-        verify(basketService,times(1)).removeItemFromBasket(anyLong(),anyString());
+        verify(basketService, times(1)).removeItemFromBasket(anyLong(),any(Product.class));
+        verify(productService, times(1)).findByName(anyString());
     }
 
     @Test
@@ -117,6 +126,6 @@ class BasketControllerTest {
                 .andExpect(status().isOk())
                 .andReturn();
 
-        verify(basketService,times(1)).removeBasket(anyLong());
+        verify(basketService, times(1)).removeBasket(anyLong());
     }
 }

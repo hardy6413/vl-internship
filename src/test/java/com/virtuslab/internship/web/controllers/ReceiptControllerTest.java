@@ -70,6 +70,6 @@ class ReceiptControllerTest {
         //then
         var receiptJson = result.getResponse().getContentAsString();
 
-        assertEquals(receiptJson,mapper.writeValueAsString(receipt));
+        assertEquals(receiptJson, mapper.writeValueAsString(receipt));
     }
 }

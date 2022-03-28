@@ -4,6 +4,7 @@ import com.virtuslab.internship.basket.Basket;
 import com.virtuslab.internship.basket.BasketDb;
 import com.virtuslab.internship.product.Product;
 import com.virtuslab.internship.web.exceptions.NotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -12,11 +13,10 @@ import java.util.Optional;
 public class BasketService {
 
     BasketDb basketRepository;
-    ProductService productService;
 
-    public BasketService(BasketDb basketRepository, ProductService productService) {
+    @Autowired
+    public BasketService(BasketDb basketRepository) {
         this.basketRepository = basketRepository;
-        this.productService = productService;
     }
 
     public Basket findById(Long basketId){
@@ -31,9 +31,8 @@ public class BasketService {
 
     public Basket addItemToBasket(Long basketId, Product product){
         Basket basket = this.findById(basketId);
-        Product savedProduct = productService.findByName(product.name());
 
-        basket.getProducts().add(savedProduct);
+        basket.getProducts().add(product);
 
         return basket;
     }
@@ -42,11 +41,11 @@ public class BasketService {
         return basketRepository.save(basket);
     }
 
-    public Basket removeItemFromBasket(Long id, String productName) {
+    public Basket removeItemFromBasket(Long id, Product product) {
         Basket basket = this.findById(id);
-        Product productToRemove = productService.findByName(productName);
 
-        basket.getProducts().remove(productToRemove);
+        basket.getProducts().remove(product);
+
         return  basket;
     }
 

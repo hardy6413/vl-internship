@@ -3,6 +3,7 @@ package com.virtuslab.internship.web.controllers;
 import com.virtuslab.internship.basket.Basket;
 import com.virtuslab.internship.product.Product;
 import com.virtuslab.internship.web.services.BasketService;
+import com.virtuslab.internship.web.services.ProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/basket")
 public class BasketController {
 
-    private BasketService basketService;
+    private final BasketService basketService;
+    private final ProductService productService;
 
     @GetMapping("/{id}")
     @ResponseBody
@@ -25,7 +27,8 @@ public class BasketController {
 
     @PostMapping(value = "/{id}/add")
     public ResponseEntity<Basket> addProductToBasket(@PathVariable Long id, @RequestBody Product product){
-        Basket basket = basketService.addItemToBasket(id, product);
+        Product productToBeAdded = productService.findByName(product.name());
+        Basket basket = basketService.addItemToBasket(id, productToBeAdded);
 
         return new ResponseEntity<>(basket, HttpStatus.OK);
     }
@@ -43,7 +46,8 @@ public class BasketController {
     @DeleteMapping("{id}/{productName}")
     @ResponseBody
     public ResponseEntity<Basket> deleteItemFromBasket(@PathVariable Long id, @PathVariable String productName){
-        Basket basket = basketService.removeItemFromBasket(id,productName);
+        Product productToBeDeleted = productService.findByName(productName);
+        Basket basket = basketService.removeItemFromBasket(id,productToBeDeleted);
 
         return new ResponseEntity<>(basket,HttpStatus.OK);
     }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.virtuslab.internship.web.services.BasketServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-03-28T14:14:54" hostname="LAPTOP-TVV3KJH9" time="0.067">
+  <properties/>
+  <testcase name="testRemoveItemFromBasket()" classname="com.virtuslab.internship.web.services.BasketServiceTest" time="0.046"/>
+  <testcase name="testRemoveBasket()" classname="com.virtuslab.internship.web.services.BasketServiceTest" time="0.006"/>
+  <testcase name="testSaveBasket()" classname="com.virtuslab.internship.web.services.BasketServiceTest" time="0.003"/>
+  <testcase name="testFindById()" classname="com.virtuslab.internship.web.services.BasketServiceTest" time="0.003"/>
+  <testcase name="testAddItemToBasket()" classname="com.virtuslab.internship.web.services.BasketServiceTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
