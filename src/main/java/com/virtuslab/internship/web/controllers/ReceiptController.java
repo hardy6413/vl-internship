@@ -20,7 +20,7 @@ public class ReceiptController {
     @ResponseBody
     public ResponseEntity<Receipt> createRecipe(@PathVariable Long basketId) {
         basketService.findById(basketId);
-        Receipt receipt = receiptService.generateReceipt(basketService.findById(basketId));
+        var receipt = receiptService.generateReceipt(basketService.findById(basketId));
 
         return new ResponseEntity<>(receipt, HttpStatus.OK);
     }

@@ -20,15 +20,15 @@ public class BasketController {
     @GetMapping("/{id}")
     @ResponseBody
     public ResponseEntity<Basket> getBasket(@PathVariable Long id) {
-        Basket basket = basketService.findById(id);
+        var basket = basketService.findById(id);
 
         return new ResponseEntity<>(basket, HttpStatus.OK);
     }
 
     @PostMapping(value = "/{id}/add")
     public ResponseEntity<Basket> addProductToBasket(@PathVariable Long id, @RequestBody Product product){
-        Product productToBeAdded = productService.findByName(product.name());
-        Basket basket = basketService.addItemToBasket(id, productToBeAdded);
+        var productToBeAdded = productService.findByName(product.name());
+        var basket = basketService.addItemToBasket(id, productToBeAdded);
 
         return new ResponseEntity<>(basket, HttpStatus.OK);
     }
@@ -36,9 +36,9 @@ public class BasketController {
     @PostMapping("/create")
     @ResponseBody
     public ResponseEntity<Basket> createBasket() {
-        Basket basket = new Basket();
+        var basket = new Basket();
 
-        Basket createdBasket = basketService.saveBasket(basket);
+        var createdBasket = basketService.saveBasket(basket);
 
         return new ResponseEntity<>(createdBasket, HttpStatus.CREATED);
     }
@@ -46,8 +46,8 @@ public class BasketController {
     @DeleteMapping("{id}/{productName}")
     @ResponseBody
     public ResponseEntity<Basket> deleteItemFromBasket(@PathVariable Long id, @PathVariable String productName){
-        Product productToBeDeleted = productService.findByName(productName);
-        Basket basket = basketService.removeItemFromBasket(id,productToBeDeleted);
+        var productToBeDeleted = productService.findByName(productName);
+        var basket = basketService.removeItemFromBasket(id,productToBeDeleted);
 
         return new ResponseEntity<>(basket,HttpStatus.OK);
     }
@@ -58,6 +58,4 @@ public class BasketController {
 
         return new ResponseEntity<>("Deleted basket ID:"+id,HttpStatus.OK);
     }
-
-
 }

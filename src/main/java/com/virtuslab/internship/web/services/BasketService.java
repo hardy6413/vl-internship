@@ -7,8 +7,6 @@ import com.virtuslab.internship.web.exceptions.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 public class BasketService {
 
@@ -20,7 +18,7 @@ public class BasketService {
     }
 
     public Basket findById(Long basketId){
-        Optional<Basket> optionalBasket = basketRepository.findById(basketId);
+        var optionalBasket = basketRepository.findById(basketId);
 
         if (optionalBasket.isEmpty()){
             throw new NotFoundException("Basket not found for ID: " +basketId);
@@ -30,7 +28,7 @@ public class BasketService {
     }
 
     public Basket addItemToBasket(Long basketId, Product product){
-        Basket basket = this.findById(basketId);
+        var basket = this.findById(basketId);
 
         basket.getProducts().add(product);
 
@@ -42,7 +40,7 @@ public class BasketService {
     }
 
     public Basket removeItemFromBasket(Long id, Product product) {
-        Basket basket = this.findById(id);
+        var basket = this.findById(id);
 
         basket.getProducts().remove(product);
 
@@ -50,7 +48,7 @@ public class BasketService {
     }
 
     public void removeBasket(Long id) {
-        Basket basket = this.findById(id);
+        var basket = this.findById(id);
 
         basketRepository.removeById(id);
     }
