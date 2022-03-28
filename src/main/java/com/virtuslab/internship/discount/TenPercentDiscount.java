@@ -1,12 +1,14 @@
 package com.virtuslab.internship.discount;
 
 import com.virtuslab.internship.receipt.Receipt;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
+@Component
 public class TenPercentDiscount {
 
-    public static String NAME = "TenPercentDiscount";
+    public static final String NAME = "TenPercentDiscount";
 
     public Receipt apply(Receipt receipt) {
         if (shouldApply(receipt)) {

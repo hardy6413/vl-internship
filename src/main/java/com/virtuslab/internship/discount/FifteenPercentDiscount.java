@@ -2,13 +2,15 @@ package com.virtuslab.internship.discount;
 
 import com.virtuslab.internship.product.Product;
 import com.virtuslab.internship.receipt.Receipt;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.util.concurrent.atomic.AtomicReference;
 
+@Component
 public class FifteenPercentDiscount {
 
-    public static String NAME = "FifteenPercentDiscount";
+    public static final String NAME = "FifteenPercentDiscount";
 
     public Receipt apply(Receipt receipt) {
         if (shouldApply(receipt)) {
