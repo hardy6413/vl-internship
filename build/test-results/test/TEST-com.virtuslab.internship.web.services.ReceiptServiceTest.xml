@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.virtuslab.internship.web.services.ReceiptServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-28T16:18:04" hostname="LAPTOP-TVV3KJH9" time="0.039">
+  <properties/>
+  <testcase name="testGenerateReceipt()" classname="com.virtuslab.internship.web.services.ReceiptServiceTest" time="0.039"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
