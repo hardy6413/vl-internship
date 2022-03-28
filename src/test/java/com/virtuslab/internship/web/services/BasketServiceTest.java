@@ -122,5 +122,6 @@ class BasketServiceTest {
         //then
         verify(basketRepository,times(1)).findById(anyLong());
         verify(basketRepository,times(1)).removeById(anyLong());
+        verify(productService,times(1)).findByName(anyString());
     }
 }
