@@ -1,8 +1,10 @@
 package com.virtuslab.internship.product;
 
+import com.virtuslab.internship.web.exceptions.NotFoundException;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -31,9 +33,14 @@ public class ProductDb {
     }
 
     public Product getProduct(String productName) {
-        return products.stream()
+        Optional<Product> optionalProduct = products.stream()
                 .filter(product -> productName.equalsIgnoreCase(product.name()))
-                .findFirst()
-                .get();
+                .findFirst();
+
+        if (optionalProduct.isEmpty()){
+            throw new NotFoundException("Product not found for NAME: " + productName);
+        }
+
+        return optionalProduct.get();
     }
 }
