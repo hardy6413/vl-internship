@@ -1,6 +1,5 @@
 package com.virtuslab.internship.web.services;
 
-import com.virtuslab.internship.basket.Basket;
 import com.virtuslab.internship.product.Product;
 import com.virtuslab.internship.product.ProductDb;
 import org.junit.jupiter.api.Test;
@@ -10,10 +9,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
-import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.anyLong;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
