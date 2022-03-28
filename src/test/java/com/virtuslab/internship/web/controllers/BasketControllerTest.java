@@ -58,9 +58,8 @@ class BasketControllerTest {
                 .andReturn();
 
         var basketJson = result.getResponse().getContentAsString();
-        var returnedBasket = mapper.readValue(basketJson,Basket.class);
 
-        assertEquals(returnedBasket.getId(),basket.getId());
+        assertEquals(basketJson,mapper.writeValueAsString(basket));
     }
 
     @Test
@@ -78,9 +77,8 @@ class BasketControllerTest {
                 .andReturn();
 
         var basketJson = result.getResponse().getContentAsString();
-        var returnedBasket = mapper.readValue(basketJson,Basket.class);
 
-        assertTrue(returnedBasket.getProducts().contains(productToAdd));
+        assertEquals(basketJson, mapper.writeValueAsString(basket));
     }
 
     @Test
@@ -95,9 +93,8 @@ class BasketControllerTest {
                 .andReturn();
 
         var basketJson = result.getResponse().getContentAsString();
-        var returnedBasket = mapper.readValue(basketJson,Basket.class);
 
-        assertEquals(returnedBasket.getId(),basket.getId());
+        assertEquals(basketJson,mapper.writeValueAsString(basket));
     }
 
     @Test
