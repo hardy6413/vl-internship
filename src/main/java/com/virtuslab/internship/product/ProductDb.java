@@ -1,10 +1,13 @@
 package com.virtuslab.internship.product;
 
+import org.springframework.stereotype.Repository;
+
 import java.math.BigDecimal;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@Repository
 public class ProductDb {
 
     private final Set<Product> products;
@@ -27,9 +30,9 @@ public class ProductDb {
         ).collect(Collectors.toSet());
     }
 
-    public Product getProduct(String productName) {
+    public Product getProduct(String productName) { //todo tolower
         return products.stream()
-                .filter(product -> productName.equals(product.name()))
+                .filter(product -> productName.equalsIgnoreCase(product.name()))
                 .findFirst()
                 .get();
     }

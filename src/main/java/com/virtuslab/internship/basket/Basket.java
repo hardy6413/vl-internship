@@ -7,7 +7,17 @@ import java.util.List;
 
 public class Basket {
 
+    private Long id;
+
     private final List<Product> products;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Basket() {
         products = new ArrayList<>();
