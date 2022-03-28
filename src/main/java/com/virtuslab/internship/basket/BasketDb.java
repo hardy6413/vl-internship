@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public class BasketDb {
 
-    private final Map<Long,Basket> basketMap;
+    public final Map<Long,Basket> basketMap;
 
     public BasketDb() {
         this.basketMap = new HashMap<>();
