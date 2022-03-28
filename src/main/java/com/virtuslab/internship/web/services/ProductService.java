@@ -2,6 +2,7 @@ package com.virtuslab.internship.web.services;
 
 import com.virtuslab.internship.product.Product;
 import com.virtuslab.internship.product.ProductDb;
+import com.virtuslab.internship.web.exceptions.NotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,7 @@ public class ProductService {
     public Product findByName(String name){
         Product productOptional = productRepository.getProduct(name);
         if (productOptional == null){
-            //todo error
+            throw new NotFoundException("Product not found for NAME: " +name);
         }
         return  productOptional;
     }

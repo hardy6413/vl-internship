@@ -24,7 +24,7 @@ public class BasketDb {
     }
 
     public Optional<Basket> findById(Long basketId) {
-        return Optional.of(basketMap.get(basketId));
+        return Optional.ofNullable(basketMap.get(basketId));
     }
 
     public Basket save(Basket basket) {

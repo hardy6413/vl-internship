@@ -30,7 +30,7 @@ public class ProductDb {
         ).collect(Collectors.toSet());
     }
 
-    public Product getProduct(String productName) { //todo tolower
+    public Product getProduct(String productName) {
         return products.stream()
                 .filter(product -> productName.equalsIgnoreCase(product.name()))
                 .findFirst()
